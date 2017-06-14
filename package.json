@@ -20,6 +20,7 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "cheerio": "^1.0.0-rc.1",
+    "coinbase": "^2.0.6",
     "express": "^4.15.3",
     "mongojs": "^2.4.0",
     "request": "^2.81.0"

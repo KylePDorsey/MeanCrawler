@@ -8,7 +8,10 @@
 </head>
 <body>
   <div class="container" ng-controller="AppCtrl">
-    <h1 class="text-center">Job Cannon</h1>
+  <div ng-model="ethPrice">
+    <h3>Current ETH to USD: ${{ethPrice}}</h3>
+  </div>
+    <h1 class="text-center jumbotron">Job Cannon</h1>
     <div class="row">
       <div class="col-lg-12">
        <div class="input-group input-group-lg">
@@ -19,7 +22,7 @@
         </div>
       </div>
     </div>
-    <table class="table table-responsive">
+    <table class="table table-responsive table-striped">
       <thead>
         <tr>
           <th>Company Name</th>
