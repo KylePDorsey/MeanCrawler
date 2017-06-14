@@ -4,15 +4,20 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 	var refreshPage = function(){
 		$http.get('/joblist').success(function(response){
 	    	$scope.jobList = response;
+		    $http.get('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD').success(function(response){
+		    	$scope.ethPrice = Object.values(response)[0];
+		    });
     		$scope.job = "";
 		});
 	}
     $http.get('/joblist').success(function(response){
     	$scope.jobList = response;
+    	$http.get('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD').success(function(response){
+	    	$scope.ethPrice = Object.values(response)[0];
+	    });
     });
 
     $scope.addJob = function() {
-    	console.log("in controller");
     	$http.post('/api/scrape',{
 			url: $scope.job.jobUrl
 		}).success(function(response){
@@ -21,7 +26,6 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
     };
 
     $scope.remove = function(id) {
-    	console.log(id);
     	$http.delete('/joblist/' + id).success(function(response){
     		refreshPage();
     	});
