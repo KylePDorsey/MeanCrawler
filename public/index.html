@@ -24,10 +24,6 @@
       </thead>
       <tbody>
         <tr>
-          <td><input class="form-control" ng-model="job.companyName"></td>
-          <td><input class="form-control" ng-model="job.companyLocation"></td>
-          <td><input class="form-control" ng-model="job.jobTitle"></td>
-          <td><input class="form-control" ng-model="job.jobSummary"></td>
           <td><input class="form-control" ng-model="job.jobUrl"></td>
           <td><button class="btn btn-primary" ng-click="addJob()">Search URL</button></td>
         </tr>
@@ -37,6 +33,7 @@
           <td>{{job.jobTitle}}</td>
           <td>{{job.jobSummary}}</td>
           <td>{{job.jobUrl}}</td>
+          <td><button class="btn btn-info" ng-click="remove(job._id)">Delete</button></td>
         </tr>
       </tbody>
     </table>
