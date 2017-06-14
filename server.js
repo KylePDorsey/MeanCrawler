@@ -3,7 +3,6 @@ var app = express();
 var mongojs = require('mongojs');
 var db = mongojs('joblist', ['joblist']);
 var bodyParser = require('body-parser');
-// var scraper = require('./scraper');
 var request = require('request');
 var cheerio = require('cheerio');
 var router = express.Router();
@@ -16,7 +15,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 
 app.get('/joblist', function(req, res){
-	db.joblist.find(function(err, docs){
+	db.joblist.find().sort({datefield: -1}, function(err, docs){
 		res.json(docs);
 	})
 });
@@ -39,7 +38,6 @@ app.post('/api/scrape', function(req, res){
 
 	if(url.indexOf('indeed') > -1) {
 		request( url, function(error, resp, body) {
-			console.log(url);
 
 			if(error){
 				console.log('Error Scraping');
@@ -68,7 +66,6 @@ app.post('/api/scrape', function(req, res){
 
 				console.log('Successfully Scraped ', job);
 
-				// res.json(job);
 				db.joblist.insert(job, function(err, doc){
 					res.json(doc);
 				})
@@ -76,6 +73,7 @@ app.post('/api/scrape', function(req, res){
 		});
 	} else {
 		console.log('cannot locate scraper');
+		return;
 	}
 });
 
