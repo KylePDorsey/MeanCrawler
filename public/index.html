@@ -20,6 +20,14 @@
           <th>Job Summary</th>
         </tr>
       </thead>
+      <tbody>
+        <tr ng-repeat="job in jobList">
+          <td>{{job.companyName}}</td>
+          <td>{{job.companyLocation}}</td>
+          <td>{{job.jobTitle}}</td>
+          <td>{{job.jobSummary}}</td>
+        </tr>
+      </tbody>
     </table>
     <input ng-model="test">    
   </div>
