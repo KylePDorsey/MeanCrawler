@@ -1,6 +1,9 @@
 # Mean Crawler
 The goal of this project was to create a node.js server with the ability for a user to input an Indeed URL and scrape the following url for Job title, Company Name, Company Location, and Job Summary.  
 
+Job Cannon header on webpage referes to one of my favorite It's Always Sunny in Philadelphia quotes.
+Link to scene: https://www.youtube.com/watch?v=ZXnifPfxK0Q
+
 ## Getting Started
 
 You will need node and MongoDB installed to get started.  
