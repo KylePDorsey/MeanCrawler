@@ -7,4 +7,11 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
     	$scope.jobList = response;
     });
 
+    $scope.addJob = function() {
+    	console.log($scope.job);
+    	$http.post('/joblist', $scope.job).success(function(response){
+    		console.log(response);
+    	});
+    }
+
 }]);

@@ -18,18 +18,28 @@
           <th>Company Location</th>
           <th>Position</th>
           <th>Job Summary</th>
+          <th>Indeed URL</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td><input class="form-control" ng-model="job.companyName"></td>
+          <td><input class="form-control" ng-model="job.companyLocation"></td>
+          <td><input class="form-control" ng-model="job.jobTitle"></td>
+          <td><input class="form-control" ng-model="job.jobSummary"></td>
+          <td><input class="form-control" ng-model="job.jobUrl"></td>
+          <td><button class="btn btn-primary" ng-click="addJob()">Search URL</button></td>
+        </tr>
         <tr ng-repeat="job in jobList">
           <td>{{job.companyName}}</td>
           <td>{{job.companyLocation}}</td>
           <td>{{job.jobTitle}}</td>
           <td>{{job.jobSummary}}</td>
+          <td>{{job.jobUrl}}</td>
         </tr>
       </tbody>
     </table>
-    <input ng-model="test">    
   </div>
 
 
